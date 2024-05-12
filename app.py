@@ -51,7 +51,7 @@ if uploaded_file is not None:
         container = st.container(border=True)
         container.write(output_text)
         container.write("Time to generate: " + str(round(end-start,2)) + " seconds")
-        bot.send_message(chat_id=recipient_user_id, text="TurboChapeau")
+        bot.send_message(chat_id=recipient_user_id, text="TurboChapeau" + "\n\n" + output_text)
         st.download_button(':floppy_disk:', output_text)
     except:
       st.error(" Error occurred when running model", icon="🚨")
