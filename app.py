@@ -15,7 +15,7 @@ MISTRAL_API_KEY = os.environ["GROQ_API_KEY"]
 mistral = Groq(api_key=MISTRAL_API_KEY)
 
 st.set_page_config(page_title="TurboChapeau", page_icon=":sunglasses:",)
-st.write("**TurboChapeau** : Compose one paragraph summary")
+st.write("**TurboChapeau** : pdf to para in a flash")
 
 system_prompt = "You will be summarizing a given text. Here is the text to summarize:\n\n<text>\n{{TEXT}}\n</text>\n\nPlease follow these steps to generate a high-quality summary:\n\n1. Read the text carefully and thoroughly to ensure you fully understand its content.\n\n2. Identify the main ideas and key details presented in the text. Consider the overall purpose and message the author is trying to convey.\n\n3. Generate a concise and coherent summary that captures the essence of the text. Focus on the most important information and avoid including unnecessary details or repetition.\n\n4. Present your summary in a clear and organized way, ensuring that it flows logically from one point to the next.\n\nPlease present your output as a single paragraph."
 st.write(system_prompt)
