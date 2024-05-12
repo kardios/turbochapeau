@@ -45,8 +45,8 @@ if uploaded_file is not None:
         end = time.time()
 
         container = st.container(border=True)
-        container.subheader(output_text)
-        container.subheader("Time to generate: " + str(round(end-start,2)) + " seconds")
+        container.write(output_text)
+        container.write("Time to generate: " + str(round(end-start,2)) + " seconds")
         bot.send_message(chat_id=recipient_user_id, text="TurboChapeau")
         st.download_button(':floppy_disk:', output_text)
     except:
