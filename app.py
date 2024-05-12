@@ -24,7 +24,7 @@ uploaded_file = st.file_uploader("", type = "pdf")
 raw_text = ""
 if uploaded_file is not None:
   doc_reader = PdfReader(uploaded_file)
-  for page in enumerate(doc_reader.pages):
+  for i, page in enumerate(doc_reader.pages):
     text = page.extract_text()
     if text:
       raw_text = raw_text + text + "\n"
