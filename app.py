@@ -36,22 +36,22 @@ if uploaded_file is not None:
   if raw_text != "":
     try:
       with st.spinner("Running AI Model..."):
-      start = time.time()
-      input = "<text>\n" + raw_text + "</text>"
-      response = mistral.chat.completions.create(
-        model="mixtral-8x7b-32768", messages=[
-          {"role": "system", "content": system_prompt},
-          {"role": "user", "content": input},
-        ],
-        temperature = 0,
-      )
-      output_text = response.choices[0].message.content
-      end = time.time()
+        start = time.time()
+        input = "<text>\n" + raw_text + "</text>"
+        response = mistral.chat.completions.create(
+          model="mixtral-8x7b-32768", messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": input},
+          ],
+          temperature = 0,
+        )
+        output_text = response.choices[0].message.content
+        end = time.time()
 
-      container = st.container(border=True)
-      container.write(output_text)
-      container.write("Time to generate: " + str(round(end-start,2)) + " seconds")
-      bot.send_message(chat_id=recipient_user_id, text="TurboChapeau:\n\n" + output_text)
-      st.download_button(':floppy_disk:', output_text)
+        container = st.container(border=True)
+        container.write(output_text)
+        container.write("Time to generate: " + str(round(end-start,2)) + " seconds")
+        bot.send_message(chat_id=recipient_user_id, text="TurboChapeau:\n\n" + output_text)
+        st.download_button(':floppy_disk:', output_text)
     except:
       st.error(" Error occurred when running model", icon="🚨")
